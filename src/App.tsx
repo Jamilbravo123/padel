@@ -29,7 +29,7 @@ function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative w-full mt-6 md:mt-0" style={{ aspectRatio: '1920/1080' }}>
+      <div className="relative w-full mt-6 md:mt-0" style={{ aspectRatio: '16/8.5', minHeight: '68vh' }}>
         {/* Background Image */}
         <img 
           src="/images/signature-series/Padel 1.jpg"
@@ -42,7 +42,7 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
         
         <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-          <div className="space-y-6 animate-fade-in-up max-w-6xl mx-auto">
+          <div className="space-y-5 md:space-y-6 animate-fade-in-up max-w-6xl mx-auto">
             <h2 className="text-gold-400 text-lg md:text-xl tracking-[0.2em]">SIGNATURE COLLECTION</h2>
             <h1 className="text-4xl md:text-[70px] font-light tracking-tight animate-hero-shimmer">CRAFTED FOR EXCELLENCE</h1>
             <div className="flex justify-center mt-8 md:mt-12">
