@@ -219,7 +219,7 @@ function App() {
                 },
                 {
                   title: "CONTACT",
-                  description: "Only for the Select Few"
+                  description: ""
                 }
               ].map((item, index) => (
                 <Link

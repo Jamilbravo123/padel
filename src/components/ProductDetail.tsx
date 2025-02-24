@@ -59,18 +59,27 @@ const products = {
         name: "Gold Rush",
         value: "#D4AF37",
         images: [
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Diablo-Luxury-2.0-2023.webp",
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Diablo-Luxury-2.0-2023-2.webp",
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Diablo-Luxury-2.0-2023-3.webp"
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg"
         ]
       },
       {
         name: "Stealth Black",
         value: "#1A1A1A",
         images: [
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Pegasus-Luxury-2.0-2023.webp",
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Pegasus-Luxury-2.0-2023-2.webp",
-          "https://www.padelpoint.es/blog/wp-content/uploads/2023/01/Siux-Pegasus-Luxury-2.0-2023-3.webp"
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg"
+        ]
+      },
+      {
+        name: "Rose Gold",
+        value: "#FFB6C1",
+        images: [
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg",
+          "/images/signature-series/top-command-025.png.jpg"
         ]
       }
     ],
@@ -164,28 +173,28 @@ function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="container mx-auto px-8 py-12">
-        <Link to="/" className="inline-flex items-center text-gold-400 hover:text-gold-300 transition-colors mb-12">
+      <div className="container mx-auto px-4 md:px-8 py-12 md:py-24">
+        <Link to="/" className="inline-flex items-center text-gold-400 hover:text-gold-300 transition-colors mb-12 md:mb-24">
           <ChevronLeft className="w-5 h-5 mr-2" />
           Back to Collection
         </Link>
 
-        <div className="grid grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           {/* Product Images */}
-          <div className="space-y-6">
-            <div className="aspect-[3/4] relative p-12 bg-gradient-to-b from-black via-gold-900/5 to-black rounded-3xl border border-gold-900/20">
+          <div className="space-y-6 -mt-6 md:-mt-12">
+            <div className="aspect-[3/4] relative p-4 md:p-6 bg-gradient-to-b from-black via-gold-900/5 to-black rounded-3xl border border-gold-900/20">
               <img
                 src={selectedColor.images[selectedImage]}
                 alt={`${product.name} - ${selectedColor.name}`}
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {selectedColor.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square p-4 rounded-xl border ${
+                  className={`aspect-square p-2 md:p-4 rounded-xl border ${
                     selectedImage === index
                       ? 'border-gold-400 bg-gold-900/20'
                       : 'border-gold-900/20 hover:border-gold-700/40'
@@ -202,16 +211,16 @@ function ProductDetail() {
           </div>
 
           {/* Product Info */}
-          <div>
-            <h1 className="text-4xl font-light tracking-wider text-gold-400">{product.name}</h1>
-            <p className="text-xl text-gold-200 mt-2">{product.description}</p>
-            <p className="text-3xl mt-6">{product.price}</p>
+          <div className="mt-8 md:mt-0">
+            <h1 className="text-3xl md:text-4xl font-light tracking-wider text-gold-400">{product.name}</h1>
+            <p className="text-lg md:text-xl text-gold-200 mt-2">{product.description}</p>
+            <p className="text-2xl md:text-3xl mt-4 md:mt-6">{product.price}</p>
 
-            <div className="mt-12 space-y-8">
+            <div className="mt-8 md:mt-12 space-y-6 md:space-y-8">
               {/* Color Selection */}
               <div>
-                <h3 className="text-sm font-medium text-gold-400 mb-4">COLOR</h3>
-                <div className="flex space-x-4">
+                <h3 className="text-sm font-medium text-gold-400 mb-3 md:mb-4">COLOR</h3>
+                <div className="flex space-x-3 md:space-x-4">
                   {product.colors.map((color) => (
                     <button
                       key={color.name}
@@ -219,7 +228,7 @@ function ProductDetail() {
                         setSelectedColor(color);
                         setSelectedImage(0);
                       }}
-                      className={`group relative w-12 h-12 rounded-full ${
+                      className={`group relative w-10 h-10 md:w-12 md:h-12 rounded-full ${
                         selectedColor.name === color.name
                           ? 'ring-2 ring-gold-400'
                           : 'hover:ring-2 hover:ring-gold-600'
@@ -239,46 +248,46 @@ function ProductDetail() {
 
               {/* Quantity Selection */}
               <div>
-                <h3 className="text-sm font-medium text-gold-400 mb-4">QUANTITY</h3>
+                <h3 className="text-sm font-medium text-gold-400 mb-3 md:mb-4">QUANTITY</h3>
                 <div className="inline-flex items-center bg-gold-900/10 rounded-full">
                   <button
                     onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-                    className="w-10 h-10 flex items-center justify-center text-gold-400 hover:text-gold-300 transition-colors"
+                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gold-400 hover:text-gold-300 transition-colors"
                   >
-                    <Minus className="w-4 h-4" />
+                    <Minus className="w-3 h-3 md:w-4 md:h-4" />
                   </button>
-                  <div className="w-12 text-center">
-                    <span className="text-xl text-gold-400 font-light">{quantity}</span>
+                  <div className="w-10 md:w-12 text-center">
+                    <span className="text-lg md:text-xl text-gold-400 font-light">{quantity}</span>
                   </div>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 flex items-center justify-center text-gold-400 hover:text-gold-300 transition-colors"
+                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gold-400 hover:text-gold-300 transition-colors"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-3 h-3 md:w-4 md:h-4" />
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12">
-              <p className="text-gold-200 leading-relaxed">{product.longDescription}</p>
+            <div className="mt-8 md:mt-12">
+              <p className="text-sm md:text-base text-gold-200 leading-relaxed">{product.longDescription}</p>
             </div>
 
-            <button className="w-full mt-12 bg-gradient-premium text-black px-8 py-4 rounded-full hover:opacity-90 transition-opacity font-medium">
+            <button className="w-full mt-8 md:mt-12 bg-gradient-premium text-black px-6 md:px-8 py-3 md:py-4 rounded-full hover:opacity-90 transition-opacity font-medium">
               Add to Cart
             </button>
 
-            <div className="mt-16">
-              <h2 className="text-xl font-light tracking-wider text-gold-400 mb-8">Specifications</h2>
+            <div className="mt-12 md:mt-16">
+              <h2 className="text-lg md:text-xl font-light tracking-wider text-gold-400 mb-6 md:mb-8">Specifications</h2>
               {renderSpecs(product.specs)}
             </div>
 
-            <div className="mt-16">
-              <h2 className="text-xl font-light tracking-wider text-gold-400 mb-8">Features</h2>
-              <ul className="space-y-4">
+            <div className="mt-12 md:mt-16">
+              <h2 className="text-lg md:text-xl font-light tracking-wider text-gold-400 mb-6 md:mb-8">Features</h2>
+              <ul className="space-y-3 md:space-y-4">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center text-gold-200">
-                    <Award className="w-4 h-4 text-gold-400 mr-3" />
+                  <li key={index} className="flex items-center text-sm md:text-base text-gold-200">
+                    <Award className="w-3 h-3 md:w-4 md:h-4 text-gold-400 mr-2 md:mr-3" />
                     {feature}
                   </li>
                 ))}
